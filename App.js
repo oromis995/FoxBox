@@ -1,41 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity,fontFamily, View, Image, SafeAreaView, Platform } from 'react-native';
+//App created by Lorenzo Basili
+//Sources 
+//https://www.youtube.com/watch?v=0-S5a0eXPoc //basic setup
+//https://www.youtube.com/watch?v=l8nY4Alk70Q //file structure and basic navigator
+//https://www.youtube.com/watch?v=gPaBicMaib4 //bottom tab navigator
+//https://www.youtube.com/watch?v=ayxRtBHw754 //drawer navigator
+//https://www.youtube.com/watch?v=Imkw-xFFLeE //DateTimePicker
 
-export default function App() {
-  const handlePress = () => console.log("Text Pressed")
+
+import React from 'react';
+import {NavigationContainer} from "@react-navigation/native"
+import  FoxNavigator from './Navigation/FoxNavigator'
+
+
+function App() {
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={() => console.log("Image Tapped")}>
-        <Image //style={styles.logo}
-          source={require('./assets/FoxBoxLogo.png')}
-          blurRadius={0.5}
-        />
-      </TouchableOpacity>
-      <Text style={styles.title}>FoxBox </Text>
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+    
+    <NavigationContainer>
+        <FoxNavigator/>
+    </NavigationContainer>
+ 
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#701d0f',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title:{
-    fontStyle:'normal',
-    color: 'white',
-    fontSize: 36,
-    fontWeight:'bold',
-    fontFamily: Platform.OS === 'ios' ? 'San Francisco' : 'Roboto'
-  },
-  logo:{
-    flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  }
-});
+export default App
